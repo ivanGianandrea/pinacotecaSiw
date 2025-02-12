@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>Aggiorna Curatore</title>
+	<link rel="stylesheet" href="/css/newForm.css" />
+  </head>
+  <body>
+	
+	<div class="barra">		
+		<h1><strong th:text="${curatore.nome + ' ' + curatore.cognome}"> Nome Opera</strong></h1>
+		</div>	
+		
+		
+    <form th:action="@{'/admin/formUpdateCuratore/' + ${curatore.id}+ '/modificaNome'}" method="POST" th:object="${curatore}">
+<span>
+        Nome: <span><input required type="text" th:field="${curatore.nome}"/></span>
+      </span>
+	  <span>
+	          <span><button type="submit">Conferma</button></span>
+	        </span>
+    </form>
+	 <form th:action="@{'/admin/formUpdateCuratore/' + ${curatore.id}+ '/modificaCognome'}" method="POST" th:object="${curatore}">
+	<span>
+	        Cognome: <span><input required type="text" th:field="${curatore.cognome}"/></span>
+	      </span>
+		  <span>
+		          <span><button type="submit">Conferma</button></span>
+		        </span>
+	    </form>
+		
+		 <form th:action="@{'/admin/formUpdateCuratore/' + ${curatore.id}+ '/modificaCodiceFiscale'}" method="POST" th:object="${curatore}">
+		<span>
+		        CodiceFiscale: <span><input required type="text" th:field="${curatore.codicefiscale}"/></span>
+		      </span>
+			  <span>
+			          <span><button type="submit">Conferma</button></span>
+			        </span>
+		    </form>
+			
+			 <form th:action="@{'/admin/formUpdateCuratore/' + ${curatore.id} + '/modificaDataDiNascita'}" method="POST" th:object="${curatore}">
+			<span>
+			       DataDiNascita: <span><input required type="date" th:field="${curatore.dataDiNascita}"/></span>
+			      </span>
+				  <span>
+				          <span><button type="submit">Conferma</button></span>
+				        </span>
+			    </form>
+	  
+				 <form th:action="@{'/admin/formUpdateCuratore/' + ${curatore.id}+ '/modificaLuogoDiNascita'}" method="POST" th:object="${curatore}">
+				<span>
+				        LuogoDiNascita: <span><input required type="text" th:field="${curatore.luogoDiNascita}"/></span>
+				      </span>
+					  <span>
+					          <span><button type="submit">Conferma</button></span>
+					        </span>
+				    </form>
+					
+					<div class = "barraNuovaPagina"> <a th:href="@{'/admin/formUpdateCuratori/' + ${curatore.id} + '/addAreatoCuratore'}"> Modifica Area</a></div>
+					<div class = "indietro" >  <a th:href="@{'/admin/gestioneCuratori/curatori'}"> Indietro</a></div>
+					
+
+					  </body>
+					
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+	<title>
+		Pinacoteca - Homepage
+	</title>
+	<link rel="stylesheet" href="/css/homePage.css" />
+</head>
+
+<body>
+	
+	<div class="login" th:if="${userDetails == null}">
+	        <a th:href="@{/login}"><strong>Login</strong></a>
+	</div>
+	
+	<div class="login" th:if="${userDetails != null}">
+		        <a th:href="@{/logout}"><strong>Logout</strong></a>
+		</div>
+
+
+		<div class="contenuto">
+	<h1 class = "barra"> PINACOTECA</h1>
+	<div class="barraUscita">
+	<a href="/elencoOpere"> <strong>Lista Opere</strong></a>
+	</div>
+	
+	
+	
+</body>
+
+</html>

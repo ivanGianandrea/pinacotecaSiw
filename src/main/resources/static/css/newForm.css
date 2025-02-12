@@ -1,0 +1,84 @@
+
+
+body {
+	           background-color: #5dbd9b; 
+	           color: white; 
+			   font-size: 20px;
+	           height: 100vh; 
+	       }
+
+.barra {
+    width: 100%;            /* imposta la larghezza della barra */
+    background-color: #fefefe;
+	color: black;
+	border-radius: 25px;
+	font-family: 'Times New Roman', serif;
+	text-align: left;
+}
+
+.area-container {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.barraNuovaPagina {
+    background-color: #fefefe;
+	color: black;
+	border-radius: 25px;
+	font-family: 'Times New Roman', serif;
+	text-align: left;
+	width: fit-content;
+	margin-top: 5px;
+	margin-bottom: 3px;
+}
+.barraNuovaPagina a {
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
+    display: block; 
+}
+
+.indietro {
+	
+		background-color: #fefefe;
+			color: black;
+			border-radius: 25px;
+			font-family: 'Times New Roman', serif;
+			text-align: left;
+			width: fit-content;
+			bottom: 20px;
+			left: 20px; 
+			position: fixed;
+	 
+	}
+
+	.indietro a {
+	    text-decoration: none; 
+	    color: black; 
+	    font-weight: bold; 
+	    display: block; 
+	}
+	
+	.barraUscita {
+	    background-color: #fefefe;
+		color: black;
+		border-radius: 25px;
+		font-family: 'Times New Roman', serif;
+		text-align: left;
+		width: fit-content;
+		margin-bottom: 10px;
+	}
+	.barraUscita a {
+	    text-decoration: none; 
+	    color: black; 
+	    font-weight: bold; 
+	    display: block; 
+	}
+	.barraUscita li a {
+	    text-decoration: none; 
+	    color: black; 
+	    font-weight: bold; 
+		display: inline-block;
+	}
+

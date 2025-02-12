@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+
+    <title>Aggiungi Artista all' Opera</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+<body>
+	<div class="barra"><h1>Aggiungi artista all' Opera - <span th:text="${opera.titolo}"></span></h1> </div>
+
+    <div th:if="${messaggioreErrore != null}">
+        <p style="color: red;" th:text="${messaggioreErrore}"></p>
+    </div>
+	
+	
+	<div class="barra"><h2>Artista associato</h2></div>
+	
+	<div th:if="${operaArtista == null}">
+		<div>	Non è associato alcun artista </div>
+	    </div>
+		
+		
+		
+    <div th:if="${operaArtista != null}">
+		<div class="area-container">
+			l' artista associato è  <span><strong  th:text="${operaArtista.nome +' '+operaArtista.cognome}"> </strong></span>
+        <span><form th:action="@{'/admin/deleteArtistaFromOpera/' + ${opera.id} +'/'+ ${operaArtista.id}}" method="post"></span>
+            <button type="submit">Rimuovi Artista</button>
+        </form>
+    </div>
+	</div>
+    
+	<div class="barra"><h2>Artisti Disponibili</h2></div>
+    <ul>
+        <li th:each="artista : ${artistiDisponibili}">
+			<div class="area-container">
+            <span th:text="${artista.nome + '' + artista.cognome}"></span>
+            <form th:action="@{'/admin/addArtistatoOpera/'+ ${opera.id} +'/'+ ${artista.id}}" method="post">
+                <button type="submit" th:disabled="${operaArtista != null}" >Aggiungi Artista</button>
+            </form>
+			</div>
+        </li>
+    </ul>
+	<div class = "barraUscita">
+		<a th:href="@{'/admin/formUpdateOpera/'+ ${opera.id}}">indietro</a>
+	</div>
+
+</body>
+</html>

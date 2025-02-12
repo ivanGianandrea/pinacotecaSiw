@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>New Opera</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+  </head>
+  <body>
+	
+			
+    <h1 class ="barra">Aggiungi un' opera</h1>
+	
+    <form th:action="@{/admin/gestioneOpere/opere}" method="POST" th:object="${opera}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+		      <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+		    </div>
+<div>
+        Titolo: <span><input type="text" th:field="${opera.titolo}"/></span>
+		<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+
+		            </div>
+      <div>
+        Anno: <span><input type="text" th:field="${opera.annodiRealizzazione}"/></span>
+		<span th:if="${#fields.hasErrors('annodiRealizzazione')}" th:errors="*{annodiRealizzazione}"></span>
+		            </div>
+      <div>
+        Tecnica: <span><input type="text" th:field="${opera.tecnica}" /></span>
+      </div>
+	  
+      <div>
+        <span><button type="submit">Conferma</button></span>
+      </div>
+    </form>
+	<div class = "indietro">
+		<a href="/admin/gestioneOpere"> <strong>Indietro</strong></a>
+		</div>
+  </body>
+</html>

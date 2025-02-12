@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Login</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+<body>
+    <h2 class = "barra">Login</h2>
+    <form th:action="@{/login}" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" required />
+        <label>Password:</label>
+        <input type="password" name="password" required />
+        <button type="submit">Accedi</button>
+    </form>
+    <div class ="barraUscita"><a th:href="@{/register}">Registrati</a></div>
+</body>
+</html>

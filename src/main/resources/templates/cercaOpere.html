@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Pinacoteca - RicercaOpera
+	</title>
+	<link rel="stylesheet" href="/css/newForm.css" />
+</head>
+
+<body>
+<h1 class = "barra"> Cerca un' opera</h1>
+
+<form th:action="@{/elencoOpere/cercaOpere/anno}" method = "GET">
+	<span>
+	        Anno: <span><input type="text" th:value="${annodiRealizzazione}" name="annodiRealizzazione"></span>
+	      </span>
+		  <span>
+		          <span><button type="submit">Conferma</button></span>
+		        </span>
+</form>
+
+<form th:action="@{/elencoOpere/cercaOpere/tecnica}" method = "GET">
+	<span>
+	        Tecnica: <span><input type="text" th:value="${tecnica}" name="tecnica"></span>
+	      </span>
+		  <span>
+		          <span><button type="submit">Conferma</button></span>
+		        </span>
+</form>
+
+<form th:action="@{/elencoOpere/cercaOpere/artista}" method = "GET">
+	<span>
+	        Nome dell'Artista: <span><input type="text" th:value="${nomeArtista}" name="nomeArtista"></span>
+	      </span>
+		  <span>
+		  	        Cognome dell'Artista: <span><input type="text" th:value="${cognomeArtista}" name="cognomeArtista"></span>
+		  	      </span>
+		  <span>
+		          <span><button type="submit">Conferma</button></span>
+		        </span>
+</form>
+
+
+<div class = "indietro" >  <a th:href="@{'/elencoOpere'}"> Indietro</a></div>
+</body>
+
+</html>

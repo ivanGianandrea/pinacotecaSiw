@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Pinacoteca - Opere</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+
+	<h1 class="barra"> Queste sono le opere!</h1>
+
+	<div th:if="${message!=null}">
+		<p th:text="${message}"></p>
+	</div>
+
+	<span th:if="${message == null}">
+		<div class="riquadro-flex">
+			<ul>
+				<li th:each="opera : ${opere}">
+					<strong>Titolo:</strong> <span th:text="${opera.titolo}"></span> |
+					<strong>Anno:</strong> <span th:text="${opera.annodiRealizzazione}"></span> |
+					<strong>Tecnica:</strong> <span th:text="${opera.tecnica}"></span> |
+					<strong>Artista:</strong> <span th:if="${opera.artista == null}">non è presente</span>
+					<span th:unless="${opera.artista == null}"
+						th:text="${opera.artista.nome + ' ' + opera.artista.cognome}"></span> |
+					<strong>Collocazione:</strong> <span th:if="${opera.areapinacoteca == null}">non è presente</span>
+					<span th:unless="${opera.areapinacoteca == null}" th:text="${opera.areapinacoteca.nome}"></span>
+					<strong>Gestita da:</strong> 
+					<span th:if="${opera.areapinacoteca == null}">
+					    non è presente
+					</span>
+					<span th:if="${opera.areapinacoteca != null}">
+					    <span th:if="${opera.areapinacoteca.curatore == null}">non è presente</span>
+					    <span th:if="${opera.areapinacoteca.curatore != null}" 
+					          th:text="${opera.areapinacoteca.curatore.nome + ' ' + opera.areapinacoteca.curatore.cognome}">
+					    </span>
+					</span>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="barraUscita">
+			<a href="/elencoOpere/cercaOpere"> <strong>filtra opere</strong></a>
+		</div>
+		<div class="indietro">
+			<a href="/"> <strong>indietro</strong></a>
+		</div>
+	</span>
+</body>
+
+</html>

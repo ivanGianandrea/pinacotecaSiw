@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>New Curatore</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+
+  </head>
+  <body>
+
+			
+    <h1 class ="barra">Aggiungi un curatore</h1>
+	
+    <form th:action="@{/admin/gestioneCuratori/nuovoCuratoreAggiunto}" method="POST" th:object="${curatore}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				      <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+				    </div>
+<div>
+        Nome: <span><input type="text" th:field="${curatore.nome}"/></span>
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+      </div>
+      <div>
+        Cognome: <span><input type="text" th:field="${curatore.cognome}"/></span>
+		<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+      </div>
+      <div>
+        CodiceFiscale: <span><input type="text" th:field="${curatore.codicefiscale}" /></span>
+		<span th:if="${#fields.hasErrors('codicefiscale')}" th:errors="*{codicefiscale}"></span>
+      </div>
+	  <div>
+	  	    DataDiNascita: <span><input type="date" th:field="${curatore.dataDiNascita}" /></span>
+			<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+	  	        </div>
+			<div>
+	    LuogoDiNascita: <span><input type="text" th:field="${curatore.luogoDiNascita}" /></span>
+		<span th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}"></span>
+				        </div>
+      <div>
+        <span><button type="submit">Conferma</button></span>
+      </div>
+    </form>
+	<div class = "indietro">
+			<a href="/admin/gestioneCuratori"> <strong>Indietro</strong></a>
+			</div>
+  </body>
+</html>

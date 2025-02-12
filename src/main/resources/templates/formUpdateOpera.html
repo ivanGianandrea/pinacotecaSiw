@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>Aggiorna Opera</title>
+	<link rel="stylesheet" href="/css/newForm.css" />
+  </head>
+  <body>
+	<div class="barra">
+  <h1><strong th:text="${opera.titolo}"> Nome Opera</strong></h1>
+  </div>
+  
+	<form th:action="@{'/admin/formUpdateOpera/' + ${opera.id} + '/modificaTitolo'}"  method = 'post' th:object="${opera}">
+	<span>
+		Titolo: <span><input required type = "text" th:field = "${opera.titolo}"/> </span>
+  </span>
+  <span>
+  <span> <button type="submit">Conferma</button></span>
+  </span>
+  </form>
+  
+  
+  <form th:action="@{'/admin/formUpdateOpera/' + ${opera.id} + '/modificaAnno'}"  method = 'post' th:object="${opera}">
+  		<span>
+  			Anno di Realizzazione: <span><input required type = "number" th:field = "${opera.annodiRealizzazione}"/> </span>
+  	  </span>
+  	  <span>
+  	  <span> <button type="submit">Conferma</button></span>
+  	  </span>
+  	  </form>
+	  
+  
+  <form th:action="@{'/admin/formUpdateOpera/' + ${opera.id} + '/modificaTecnica'}"  method = 'post' th:object="${opera}">
+  	<span>
+  		Tecnica: <span><input required type = "text" th:field = "${opera.tecnica}"/> </span>
+    </span>
+    <span>
+    <span> <button type="submit">Conferma</button></span>
+    </span>
+    </form>
+	<div class = "barraNuovaPagina"> <a th:href="@{'/admin/addArtistatoOpera/'+${opera.id}}"> Modifica Artista</a></div>
+	<div class = "barraNuovaPagina" ><a th:href="@{'/admin/addAreatoOpera/'+${opera.id}}"> Modifica Sala</a></div>
+    <div class = "indietro" >  <a th:href="@{'/admin/gestioneOpere/opere'}"> Indietro</a></div>
+  
+  
+  </body>
+</html>
+  

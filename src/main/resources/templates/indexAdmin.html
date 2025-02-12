@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Pinacoteca - Homepage
+	</title>
+	<link rel="stylesheet" href="/css/homePage.css" />
+</head>
+
+<body>
+	
+	<div class="login" th:if="${userDetails == null}">
+		        <a th:href="/login"><strong>Login</strong></a>
+		</div>
+		
+		<div class="login" th:if="${userDetails != null}">
+			        <a th:href="@{/logout}"><strong>Logout</strong></a>
+			</div>
+
+		<div class="contenuto">
+	<h1 class = "barra"> PINACOTECA</h1>
+	<div class="barraUscita">
+	<a href="/elencoOpere"> <strong>Lista Opere</strong></a>
+	</div>
+	
+	
+	<h1 class = "barra"> PINACOTECA - AMMINISTRATORE</h1>
+	<div class="barraUscita">
+	<a href="/admin/gestioneOpere"> <strong>Gestione Opere</strong></a>
+	</div>
+	<div class="barraUscita">
+	<a href="/admin/gestioneCuratori"> <strong>Gestione Curatori</strong></a>
+	</div>
+	<div class="barraUscita">
+	<a href="/admin/gestioneArtisti"> <strong>Gestione Artisti</strong></a>
+	</div>
+	</div>
+</body>
+
+</html>

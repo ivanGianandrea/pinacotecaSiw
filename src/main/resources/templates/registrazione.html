@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Registrazione</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+<body>
+    <h2 class ="barra">Registrazione</h2>
+	
+	<form th:action="@{/register}" method="post" th:object="${credentials}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+						      <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+						    </div>
+	    <div>
+	        <label>Nome:</label>
+	        <input type="text" th:field="*{user.nome}"/>
+	        <span th:if="${#fields.hasErrors('user.nome')}" th:errors="*{user.nome}"></span>
+	    </div>
+	    
+	    <div>
+	        <label>Cognome:</label>
+	        <input type="text" th:field="*{user.cognome}"/>
+	        <span th:if="${#fields.hasErrors('user.cognome')}" th:errors="*{user.cognome}"></span>
+	    </div>
+	    
+	    <div>
+	        <label>Username:</label>
+	        <input type="text" th:field="*{username}"/>
+	        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+	    </div>
+
+	    <div>
+	        <label>Password:</label>
+	        <input type="password" th:field="*{password}"/>
+	        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+	    </div>
+
+	    <button type="submit">Registrati</button>
+	</form>
+</body>
+</html>

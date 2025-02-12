@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Aggiorna Artista</title>
+	<link rel="stylesheet" href="/css/newForm.css" />
+</head>
+
+<body>
+	<div class="barra">
+		<h1><strong th:text="${artista.nome + ' ' + artista.cognome}"> Nome Artista</strong></h1>
+	</div>
+
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id}+ '/modificaNome'}" method="POST" th:object="${artista}">
+		<span>
+			Nome: <span><input required type="text" th:field="*{nome}" /></span>
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+		</span>
+		<!-- <span th:if="${error!=null}" th:text="${error}"></span> -->
+		<span>
+			<span><button type="submit">Conferma</button></span>
+		</span>
+	</form>
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id}+ '/modificaCognome'}" method="POST" th:object="${artista}">
+		<span>
+			Cognome: <span><input type="text" th:field="*{cognome}" /></span>
+			<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+		</span>
+		<span>
+			<span><button type="submit">Conferma</button></span>
+		</span>
+	</form>
+
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id}+ '/modificaDataDiNascita'}" method="POST"
+		th:object="${artista}">
+		
+		<span>
+			DatadiNascita: <span><input type="date" th:field="*{dataDiNascita}" /></span>
+			<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+		</span>
+		<span>
+			<span><button type="submit">Conferma</button></span>
+		</span>
+	</form>
+
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id} + '/modificaDataDiMorte'}" method="POST"
+		th:object="${artista}">
+		
+		<span>
+			DataDiMorte: <span><input type="date" th:field="*{dataDiMorte}" /></span>
+			<span th:if="${#fields.hasErrors('dataDiMorte')}" th:errors="*{dataDiMorte}"></span>
+		</span>
+		<span>
+			<span><button type="submit">Conferma</button></span>
+		</span>
+	</form>
+
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id}+ '/modificaLuogoDiNascita'}" method="POST"
+		th:object="${artista}">
+		
+		<span>
+			LuogoDiNascita: <span><input required type="text" th:field="*{luogoDiNascita}" /></span>
+		</span>
+		<span>
+			<span><button type="submit">Conferma</button></span>
+		</span>
+	</form>
+	
+	<form th:action="@{'/admin/formUpdateArtista/' + ${artista.id} + '/elimina'}" method="post">
+	    <button type="submit">Elimina Artista</button>
+	</form>
+
+	<div class="indietro"> <a th:href="@{'/admin/gestioneArtisti/artisti'}"> Indietro</a></div>
+
+
+</body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>New Artista</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+  </head>
+  <body>	
+			
+    <h1 class ="barra">Aggiungi un' Artista</h1>
+	
+    <form th:action="@{/admin/formNewArtista/artista}" method="POST" th:object="${artista}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+		      <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+		    </div>
+<div>
+        Nome: <span><input  type="text" th:field="${artista.nome}"/></span>
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+
+		            </div>
+      <div>
+        Cognome: <span><input  type="text" th:field="${artista.cognome}"/></span>
+		<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+		            </div>
+       <div>
+	  DataDiNascita: <span><input type="date" th:field="${artista.dataDiNascita}" /></span>
+	 <span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+		</div>
+	  
+		<div>
+	  DataDiMorte: <span><input  type="date" th:field="${artista.dataDiMorte}" /></span>
+			 <span th:if="${#fields.hasErrors('dataDiMorte')}" th:errors="*{dataDiMorte}"></span>
+				</div>
+				<div>
+	    LuogoDiNascita: <span><input  type="text" th:field="${artista.luogoDiNascita}" /></span>
+				 <span th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}"></span>
+					</div>		
+      <div>
+        <span><button type="submit">Conferma</button></span>
+      </div>
+    </form>
+	<div class = "indietro">
+		<a href="/admin/gestioneArtisti"> <strong>Indietro</strong></a>
+		</div>
+  </body>
+</html>

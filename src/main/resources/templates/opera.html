@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Opera</title>
+    <link rel="stylesheet" href="/stile.css?version=2" />
+  </head>
+  <body>
+    <div th:if="${opera}">
+    <h1 th:text="${opera.title}">Titolo opera</h1>
+        <div>Anno: <span th:text="'(' + ${opera.annodiRealizzazione} + ')'">2000</span></div>
+    </div>
+    <div th:unless="${opera}">Non esiste</div>
+  </body>
+</html>

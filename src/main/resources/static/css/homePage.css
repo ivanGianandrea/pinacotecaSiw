@@ -1,0 +1,88 @@
+
+
+body {
+	           background-color: #5dbd9b; 
+	           color: white; 
+			   font-size: 20px;
+	           height: 100vh; 
+	       }
+
+.barra {
+    width: 100%;            /* imposta la larghezza della barra */
+    background-color: #fefefe;
+	color: black;
+	border-radius: 25px;
+	font-family: 'Times New Roman', serif;
+	text-align: left;
+}
+
+.area-container {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.barraUscita {
+    background-color: #fefefe;
+	color: black;
+	border-radius: 25px;
+	font-family: 'Times New Roman', serif;
+	text-align: left;
+	width: fit-content;
+	margin-bottom: 10px;
+}
+.barraUscita a {
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
+    display: block; 
+}
+.barraUscita li a {
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
+	display: inline-block;
+}
+
+.contenuto {
+    margin-top: 80px; /* Aggiunge spazio sopra */
+    text-align: center; /* Centra il contenuto */
+}
+
+	
+	.riquadro-flex {
+	    display: inline-block;
+	    align-items: center;
+	    justify-content: center;
+	    background-color: #d3d3d3;
+	    color: #2c2c2c;
+	    padding: 15px;
+	    border-radius: 25px;
+	    border: 2px solid #d3d3d3;
+	    font-size: 18px;
+	    width: 100%; /* Adatta la larghezza al contenuto */
+	    max-width: 90%; /* Limite massimo per evitare eccessi */
+	}
+	
+	
+	
+	.login {
+		position: absolute;
+	    top: 10px;
+	    right: 20px;
+		background-color: #fefefe;
+		color: black;
+		border-radius: 25px;
+		font-family: 'Times New Roman', serif;
+		text-align: left;
+		width: fit-content;
+	}
+
+	.login a {
+	  
+		
+		text-decoration: none; 
+		    color: black; 
+		    font-weight: bold; 
+	}
+

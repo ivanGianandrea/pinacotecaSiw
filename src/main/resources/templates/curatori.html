@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Pinacoteca - Curatori
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+
+	<h1 class="barra"> Questi sono i curatori!</h1>
+
+	<div th:if="${message!=null}">
+		<p th:text="${message}"></p>
+	</div>
+
+	<div th:if="${message == null}">
+		<div class="riquadro-flex">
+			<ul>
+				<li th:each="curatore : ${curatori}">
+					<span th:if="${areaCuratore == null}">
+						<strong>Nome:</strong> <span th:if="${curatore.nome == null}">non è presente</span>
+						<span th:unless="${curatore.nome == null}" th:text="${curatore.nome}"></span> |
+						<strong>Cognome:</strong> <span th:if="${curatore.cognome == null}">non è presente</span>
+						<span th:unless="${curatore.cognome == null}" th:text="${curatore.cognome}"></span> |
+						<strong>Codicefiscale:</strong> <span th:if="${curatore.codicefiscale == null}">non è
+							presente</span>
+						<span th:unless="${curatore.codicefiscale == null}" th:text="${curatore.codicefiscale}"></span>
+						|
+						<strong>DataDiNascita:</strong> <span th:if="${curatore.dataDiNascita == null}">non è
+							presente</span>
+						<span th:unless="${curatore.dataDiNascita == null}" th:text="${curatore.dataDiNascita}"></span>
+						|
+						<strong>LuogoDiNascita: </strong> <span th:if="${curatore.luogoDiNascita == null}">non è
+							presente</span>
+						<span th:unless="${curatore.luogoDiNascita == null}"
+							th:text="${curatore.luogoDiNascita}"></span> |
+
+						<strong>Area Gestita:</strong> <span th:if="${curatore.areaPinacoteca == null}">assente</span>
+						<span th:unless="${curatore.areaPinacoteca == null}"
+							th:text="${curatore.areaPinacoteca.nome}"></span>
+
+						<a th:href="@{'/admin/formUpdateCuratore/'+ ${curatore.id}}" class="modifica">Modifica</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="indietro">
+			<a href="/admin/gestioneCuratori"> <strong>indietro</strong></a>
+		</div>
+
+</body>
+
+</html>

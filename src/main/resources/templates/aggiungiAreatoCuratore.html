@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+
+    <title>Aggiungi Area al Curatore</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+<body>
+	<div class="barra"><h1>Aggiungi area al Curatore - <span th:text="${curatore.nome + ' ' + curatore.cognome}"></span></h1> </div>
+
+    <div th:if="${messaggioreErrore != null}">
+        <p style="color: red;" th:text="${messaggioreErrore}"></p>
+    </div>
+	
+	
+	<div class="barra"><h2>Area Gestita</h2></div>
+	
+	<div th:if="${areaCuratore == null}">
+		<div>	Non gestisce alcuna Area </div>
+	    </div>
+		
+		
+		
+    <div th:if="${areaCuratore != null}">
+		<div class="area-container">
+			Gestisce l'  <span><strong  th:text="${areaCuratore.nome}"> </strong></span>
+        <span><form th:action="@{'/admin/deleteAreaFromCuratore/' + ${curatore.id} +'/'+ ${areaCuratore.id}}" method="post"></span>
+            <button type="submit">Rimuovi Area</button>
+        </form>
+    </div>
+	</div>
+    
+	<div class="barra"><h2>Aree Disponibili</h2></div>
+    <ul>
+        <li th:each="area : ${areePinacotecaDisponibili}">
+			<div class="area-container">
+            <span th:text="${area.nome}"></span>
+            <form th:action="@{'/admin/addAreatoCuratore/ '+ ${curatore.id} +'/'+ ${area.id}}" method="post">
+                <button type="submit" th:disabled="${areaCuratore != null}" >Aggiungi Area</button>
+            </form>
+			</div>
+        </li>
+    </ul>
+	<div class = "barraUscita">
+		<a th:href="@{'/admin/formUpdateCuratore/'+ ${curatore.id}}">indietro</a>
+	</div>
+
+</body>
+</html>

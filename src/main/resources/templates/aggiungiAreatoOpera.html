@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+    <title>Aggiorna Opera</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+	  </head>
+  <body>
+
+	<div class="barra"><h1>Aggiungi area all'Opera - <span th:text="${opera.titolo}"></span></h1> </div>
+	<div th:if="${messaggioreErrore!=null}">
+	<p style="color: red;" th:text="${messaggioreErrore}"></p>
+	   </div>
+	   
+	   <div class="barra"><h2>Area Associata</h2></div>
+     <div  th:if="${areaOpera==null}">
+		<div>
+			Non è associata ad Alcuna Area
+		</div>
+	 </div>
+	 
+	 <div th:if="${areaOpera!=null}">
+	 		<div class="area-container">
+	 			Si trova nell' <span><strong  th:text="${areaOpera.nome}"> </strong></span>
+				<span> 				<form th:action="@{'/admin/deleteAreatoOpera/' + ${opera.id} +'/'+ ${areaOpera.id}}" method="post"></span>
+				           <button type="submit">Rimuovi Area</button> 
+				        </form>
+	 		</div>
+	 	 </div>
+		 
+	<div class="barra"><h2>Aree Disponibili</h2></div>
+	<ul >
+		<li th:each="area : ${aree}">
+			<div class="area-container">
+			<span th:text="${area.nome}"></span>
+			<form th:action="@{'/admin/addAreatoOpera/'+${opera.id}+'/'+${area.id}}" method = "post">
+			<span ><button type="submit" th:disabled="${areaOpera != null}">Aggiungi Area</button></span>
+			</form>
+			</div>
+		</li>
+	</ul>
+	<div class = "barraUscita">
+	<a th:href="@{'/admin/formUpdateOpera/'+ ${opera.id}}">indietro</a>
+	</div>
+	 </body>
+	</html>
